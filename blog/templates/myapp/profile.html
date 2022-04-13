@@ -1,0 +1,17 @@
+{% extends "myapp/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+    {% if messages %}    
+    {% for message in messages %}  
+        {{ message }}  
+        {% endfor %}     
+    {% endif %}  
+    <div class="col-6">
+        <form method="POST" class="">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock %}
